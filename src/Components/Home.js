@@ -8,12 +8,12 @@ const Home = () => {
   const [date,setDate] = useState(moment().format("YYYY-MM-DD"))
   const [toggle, setToggle] = useState(false)
   const [startTime, setStartTime] = useState("00:01")
-  const [endTime, setEndTime] = useState(moment().format("hh:mm"))
+  const [endTime, setEndTime] = useState(moment().format("HH:mm"))
   const [uniqueObjData, setUniqObjData] = useState({})
   const [displayData, setDisplayData] = useState({})
   const [specifiedData, setSpecifiedData]= useState([])
   let btnDisplay = false
- 
+
   useEffect(()=>{
     let selectedDate = {"date" : date}
     const obj = {
@@ -101,7 +101,7 @@ const Home = () => {
     })
   }
 
-  if(startTime > endTime){
+  if(startTime > endTime || startTime == endTime){
     swal("Warning!", "Please Check your Timings (from - to)", "warning");
     btnDisplay = true
   }else {
